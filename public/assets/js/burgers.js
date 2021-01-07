@@ -1,26 +1,28 @@
+const burger = require("../../../models/burger");
+
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $.ajax("/cats", {
+  $.ajax("/burger", {
     type: "GET"
   }).then(function(data) {
     var sleepyElem = $("#sleepyCats");
     var nosleepyElem = $("#notSleepyCats");
 
-    var cats = data.cats;
-    var len = cats.length;
+    var cats = data.burgers;
+    var len = burgers.length;
 
     for (var i = 0; i < len; i++) {
       var new_elem =
         "<li>" +
-        cats[i].id + 
-        ". "+cats[i].name +
-        "<button class='change-sleep' data-id='" +
-        cats[i].id +
-        "' data-newsleep='" +
-        !cats[i].sleepy +
+        burgerss[i].id + 
+        ". "+burgers[i].name +
+        "<button class='devoured' data-id='" +
+        burger[i].id +
+        "' data-delete='" +
+        !burgers[i].sleepy +
         "'>";
 
-      if (cats[i].sleepy) {
+      if (burgers[i].sleepy) {
         new_elem += "SLEEP TIME!";
       } else {
         new_elem += "WAKE UP!";

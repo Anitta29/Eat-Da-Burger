@@ -1,5 +1,5 @@
 const express = require("express");
-
+const path = require("path");
 const router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
@@ -7,6 +7,9 @@ const burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
+  burger.all(function(data) {
+    res.render("index", { burger: data });
+  });
 });
 
 // Create all our routes and set up logic within those routes where required.
@@ -16,9 +19,9 @@ router.get("/api/burgers", function(req, res) {
   });
 });
 
-router.post("/burgers", function(req, res) {
+router.post("/api/burgers", function(req, res) {
   burger.create([
-    "name", "sleepy"
+     
   ], [
     req.body.name, req.body.sleepy
   ], function(result) {
