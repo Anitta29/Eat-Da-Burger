@@ -1,6 +1,11 @@
 body {
-  /* background-image: url(./public/burgers.jpg); */
+  background-image: url(/wp5133885-burger-and-fries-wallpapers.jpg);
+  background-size: 100%;
   color: red;
+  text-align: center;
+  font-size: 60px;
+  padding: 20px;
+  font-family: 'Hanalei Fill', cursive;
 }
 
 li {
